@@ -9,6 +9,7 @@ gem 'rails', '4.2.1'
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'
+  gem 'jasmine-rails' # if you plan to use JavaScript/CoffeeScript
   gem 'database_cleaner', '1.4.1'
   gem 'capybara', '2.4.4'
   gem 'launchy'
@@ -17,10 +18,16 @@ group :development, :test do
 end
 
 group :test do
+  gem 'rspec-rails', '2.14'
   gem 'simplecov', :require => false
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
+  gem 'database_cleaner' # required by Cucumber
+  gem 'autotest-rails'
+  gem 'factory_girl_rails' # if using FactoryGirl
+  gem 'metric_fu'        # collect code metrics
 end
+
 group :production do
   gem 'pg'
 end
