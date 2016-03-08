@@ -5,7 +5,8 @@ class FamiliesController < ApplicationController
   end
   
   def show
-    
+    id = params[:id]
+    @family = Family.find(id)
   end
   
   def index
@@ -25,13 +26,16 @@ class FamiliesController < ApplicationController
   end
   
   def create
-    
+    @family = Family.create!(family_params)
+    # flash[:notice] = "#{@family.name} Family was successfully created."
+    redirect_to families_path
   end
   
   def destroy
-    @family = Family.create!(family_params)
-    flash[:notice] = "#{@family.name} Family was successfully created."
-    redirect_to family_path
+    @family = Family.find(params[:id])
+    @family.destroy
+    flash[:notice] = "Family '#{@family.name}' deleted."
+    redirect_to families_path
   end
   
 end

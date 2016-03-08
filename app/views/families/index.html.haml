@@ -6,11 +6,13 @@
       %th Family Name
       %th Phone Number
       %th Email
+      %th More Info
   %tbody
     - @families.each do |family|
       %tr
         %td= family.name 
         %td= family.phone
         %td= family.email
+        %td= link_to "More about #{family.name} Family", family_path(family)
 
 = link_to 'Add a new Family', new_family_path

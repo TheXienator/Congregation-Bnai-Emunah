@@ -1,19 +1,17 @@
 %h1 Create New Family
-%br
 
 = form_tag families_path do
 
   = label :family, :name, 'Name'
   = text_field :family, 'name'
-%br  
+
   = label :family, :people, 'Members'
   = text_field :family, 'people'
-%br  
+
   = label :family, :phone, 'Phone'
   = text_field :family, 'phone'
-%br
-  = label :family, :email, 'Email'
-  = text_field :family, 'Email'
-%br
 
-  = submit_tag 'Save Changes'
+  = label :family, :email, 'Email'
+  = text_field :family, 'email'
+
+  = submit_tag 'Add Family'

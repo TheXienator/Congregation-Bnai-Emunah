@@ -1,1 +1,21 @@
-%h2 Congregation B'nai Emunah Home Page
+%h2 Details about #{@family.name} Family
+
+%ul#details
+  %li
+    Members:
+    = @family.people
+  %li
+    Phone:
+    = @family.phone
+  %li
+    Email:
+    = @family.email
+
+%h3 Comments:
+
+// %p#description= @movie.description
+
+// = link_to 'Edit', edit_movie_path(@movie)
+= button_to 'Delete', family_path(@family), method: :delete, data: { confirm: 'Are you sure you want to delete this alert?' }
+= link_to 'Add a comment'
+= link_to 'Back to family list', families_path
