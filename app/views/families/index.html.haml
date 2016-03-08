@@ -1,0 +1,16 @@
+%h1 All Families
+
+%table#families
+  %thead
+    %tr
+      %th Family Name
+      %th Phone Number
+      %th Email
+  %tbody
+    - @families.each do |family|
+      %tr
+        %td= family.name 
+        %td= family.phone
+        %td= family.email
+
+= link_to 'Add a new Family', new_family_path
