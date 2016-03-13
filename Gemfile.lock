@@ -47,6 +47,8 @@ GEM
     ast (2.2.0)
     autotest-rails (4.2.1)
       ZenTest (~> 4.5)
+    bootstrap-sass (3.2.0.0)
+      sass (~> 3.2)
     builder (3.2.2)
     byebug (8.2.2)
     cane (2.6.2)
@@ -301,6 +303,7 @@ PLATFORMS
 DEPENDENCIES
   ZenTest (= 4.11.0)
   autotest-rails
+  bootstrap-sass (= 3.2.0.0)
   byebug
   capybara (= 2.4.4)
   coffee-rails (~> 4.1.0)

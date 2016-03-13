@@ -5,8 +5,7 @@ class FamiliesController < ApplicationController
   end
   
   def show
-    id = params[:id]
-    @family = Family.find(id)
+    @family = Family.find(params[:id])
   end
   
   def index
@@ -14,7 +13,7 @@ class FamiliesController < ApplicationController
   end
   
   def edit 
-    
+    @family = Family.find(params[:id])
   end
   
   def update
@@ -22,12 +21,12 @@ class FamiliesController < ApplicationController
   end
     
   def new
-    
+    @family = Family.new
   end
   
   def create
     @family = Family.create!(family_params)
-    # flash[:notice] = "#{@family.name} Family was successfully created."
+    flash[:notice] = "#{@family.name} Family was successfully created."
     redirect_to families_path
   end
   

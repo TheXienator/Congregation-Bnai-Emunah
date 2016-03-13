@@ -1,0 +1,19 @@
+<h1>Create New Family</h1>
+
+<%= form_for @family do %>
+
+  <%= label :family, :name, 'Name' %>
+  <%= text_field :family, 'name' %>
+
+  <%= label :family, :people, 'Members'%>
+  <%= text_field :family, 'people'%>
+
+  <%= label :family, :phone, 'Phone'%>
+  <%= text_field :family, 'phone'%>
+
+  <%= label :family, :email, 'Email'%>
+  <%= text_field :family, 'email'%>
+
+  <%= submit_tag 'Add Family'%>
+  
+<% end %>

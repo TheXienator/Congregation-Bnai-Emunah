@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'families#index'
-  resources :families
+  resources :families do
+    resources :comments
+  end
   # root 'families#index'
 
   # Example of regular route:
