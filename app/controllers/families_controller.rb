@@ -9,7 +9,7 @@ class FamiliesController < ApplicationController
   end
   
   def index
-    @families = Family.all
+    @families = Family.order(:name)
   end
   
   def edit 

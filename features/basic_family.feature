@@ -25,3 +25,8 @@ Scenario: add families
   And   I press "Add Family"
   Then  I should be on the families home page
   And   I should see "Xie"
+  
+Scenario: sort families alphabetically
+  Given I am on the families home page
+  Then I should see "Hamilton" before "Johnson"
+  Then I should see "ham@ilton.com" before "an@email.com"
