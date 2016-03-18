@@ -33,7 +33,7 @@
 
 <h6>Add a comment:</h6>
 <%= form_for ([@family, @family.comments.build]) do |f| %>
-  <%= f.label :content %>
+  <%= f.label :content, 'Content' %>
   <%= f.text_area :content %>
   
   <%= submit_tag 'Add Comment'%>

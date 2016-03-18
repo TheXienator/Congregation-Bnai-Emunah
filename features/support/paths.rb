@@ -15,6 +15,11 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+    when /^the families home page/
+      '/families'
+    when /^the "(.*)" family page/ then
+      family = Family.find_by name: $1
+      "/families/#{family.id}"
     when /^the new page for "Families"/
       '/families/new'
     # Add more mappings here.

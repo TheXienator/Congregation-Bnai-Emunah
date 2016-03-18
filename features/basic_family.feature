@@ -12,16 +12,16 @@ Background: families in database
   | Hamilton  | Tim, Ben | (542)098-4329 | ham@ilton.com |
 
 Scenario: view families
-  Given I am on the home page
+  Given I am on the families home page
   Then  I should see "Johnson"
   Then  I should see "Hamilton"
   Then  I should not see "Xie"
 
 Scenario: add families
-  Given I am on the home page
+  Given I am on the families home page
   When  I follow "Add Family"
   Then  I should be on the new page for "Families"
   And   I fill in "Name" with "Xie"
   And   I press "Add Family"
-  Then  I should be on the home page
+  Then  I should be on the families home page
   And   I should see "Xie"
