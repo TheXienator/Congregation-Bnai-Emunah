@@ -1,10 +1,10 @@
 == Code Climate Badges
 
-{<img src="https://codeclimate.com/repos/56d2a09750f7f00070017b5b/badges/15ff92382ae08f67a9f6/gpa.svg" />}[https://codeclimate.com/repos/56d2a09750f7f00070017b5b/feed]
+{<img src="https://codeclimate.com/github/TheXienator/Congregation-Bnai-Emunah/badges/gpa.svg" />}[https://codeclimate.com/github/TheXienator/Congregation-Bnai-Emunah]
 
-{<img src="https://codeclimate.com/repos/56d2a09750f7f00070017b5b/badges/15ff92382ae08f67a9f6/coverage.svg" />}[https://codeclimate.com/repos/56d2a09750f7f00070017b5b/coverage]
+{<img src="https://codeclimate.com/github/TheXienator/Congregation-Bnai-Emunah/badges/coverage.svg" />}[https://codeclimate.com/github/TheXienator/Congregation-Bnai-Emunah/coverage]
 
-{<img src="https://codeclimate.com/repos/56d2a09750f7f00070017b5b/badges/15ff92382ae08f67a9f6/issue_count.svg" />}[https://codeclimate.com/repos/56d2a09750f7f00070017b5b/feed]
+<a href="https://codeclimate.com/github/TheXienator/Congregation-Bnai-Emunah"><img src="https://codeclimate.com/github/TheXienator/Congregation-Bnai-Emunah/badges/issue_count.svg" /></a>
 
 == Travis CI Badge
 
