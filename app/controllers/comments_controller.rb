@@ -9,4 +9,8 @@ class CommentsController < ApplicationController
     @comment = @family.comments.create(comment_params)
     redirect_to family_path(@family)
   end
+  
+  def index
+    @comments = Comment.all
+  end
 end

@@ -19,9 +19,9 @@ Scenario: view families
 
 Scenario: add families
   Given I am on the home page
-  When  I press "Add Family"
+  When  I follow "Add Family"
   Then  I should be on the new page for "Families"
-  And   I fill in "Family surname" with "Xie"
+  And   I fill in "Name" with "Xie"
   And   I press "Add Family"
   Then  I should be on the home page
   And   I should see "Xie"

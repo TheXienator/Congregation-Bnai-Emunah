@@ -1,0 +1,8 @@
+<h1>Newsfeed:</h1>
+<% @comments.each do |comment| %>
+  <% comment.family.name family %>
+  <div class = "center jumbotron">
+    <%= comment.content %>
+    <%= link_to 'Edit', edit_family_comment_path(comment.family, comment) %>
+  </div>
+<% end %>
