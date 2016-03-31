@@ -7,9 +7,9 @@ Feature: creation and view of families
 Background: families in database
  
   Given the following families exist:
-  | name      | people   | phone         | email         | 
-  | Johnson   | Walter   | (483)290-8483 | an@email.com  |
-  | Hamilton  | Tim, Ben | (542)098-4329 | ham@ilton.com |
+  | name      | people   | status      | phone         | email         | 
+  | Johnson   | Walter   | New         | (483)290-8483 | an@email.com  |
+  | Hamilton  | Tim, Ben | Prospective | (542)098-4329 | ham@ilton.com |
 
 Scenario: view families
   Given I am on the families home page
