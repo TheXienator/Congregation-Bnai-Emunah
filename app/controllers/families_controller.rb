@@ -17,7 +17,10 @@ class FamiliesController < ApplicationController
   end
   
   def update
-    
+    @family = Family.find params[:id]
+    @family.update_attributes!(family_params)
+    flash[:notice] = "#{@family.name} family was successfully updated."
+    redirect_to family_path(@family)
   end
     
   def new
