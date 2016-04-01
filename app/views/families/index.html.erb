@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Family Name</th>
+    <th>Status</th>
     <th>Phone Number</th>
     <th>Email</th>
     <th>More Info</th>
@@ -11,6 +12,7 @@
   <% @families.each do |family| %>
   <tr>
     <td><%= family.name %></td>
+    <td><%= family.status %></td>
     <td><%= family.phone %></td>
     <td><%= family.email %></td>
     <td><%= link_to "More Info about #{family.name} Family", family_path(family) %></td>

@@ -1,7 +1,7 @@
 class FamiliesController < ApplicationController
   
   def family_params
-    params.require(:family).permit(:name, :people, :phone, :email)
+    params.require(:family).permit(:name, :people, :status, :phone, :email)
   end
   
   def show

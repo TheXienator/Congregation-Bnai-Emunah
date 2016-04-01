@@ -1,0 +1,27 @@
+Login: basic & confidential
+    1. Last login: "datetime" on top of page
+
+When you login, you have access to Four Areas.  
+1) Family Page: Sorts, Search by Date/Family
+2) Follow up items assigned to you
+3) Lists of Families by Category
+4) Recent Updates
+
+Submissions have toggle for basic/confidential
+    1. Comments should be dated and (color?)coded by followup: None, Incomplete, Complete
+    2. Followup option associated with a specific comment
+        1. New textbox would appear for followup instructions 
+        2. Dropdown menu of people in the system that we can assign the task to
+        3. High/low priority toggle, email if high priority
+    3. All submissions go to Concierge for review before publishing
+    
+Followups:
+    1. List of follow ups assigned
+    2. Can sort by priority (High/Low) or date assigned
+    3. Can check off completions, reflected in submission page
+    3. Can view list of outstanding or completed or both.
+    
+Recent Updates:
+    List of all items? (what is an item: comment, family, etc) entered into the system with most recent on top.  
+
+Be able to print out lists of families in specific categories along with their information

@@ -7,9 +7,9 @@ Feature: creation of comments to families
 Background: families in database
  
   Given the following families exist:
-  | name      | people   | phone         | email         | 
-  | Johnson   | Walter   | (483)290-8483 | an@email.com  |
-  | Hamilton  | Tim, Ben | (542)098-4329 | ham@ilton.com |
+  | name      | people   | status      |  phone         | email         | 
+  | Johnson   | Walter   | New         |  (483)290-8483 | an@email.com  |
+  | Hamilton  | Tim, Ben | Prospective |  (542)098-4329 | ham@ilton.com |
 
   Given the following comments exist:
   | family    | content                                         |
