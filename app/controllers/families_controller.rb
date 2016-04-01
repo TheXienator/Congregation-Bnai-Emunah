@@ -9,7 +9,10 @@ class FamiliesController < ApplicationController
   end
   
   def index
-    @families = Family.order(:name)
+    # @families = Family.order(:name)
+    
+    @families = Family.order(:created_at)
+    # @family.order(:created_at).reverse_order
   end
   
   def edit 
