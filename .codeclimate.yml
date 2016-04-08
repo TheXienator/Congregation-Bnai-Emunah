@@ -48,3 +48,4 @@ exclude_paths:
 - vendor/
 - coverage/
 - public/assets/
+- Gemfile.lock

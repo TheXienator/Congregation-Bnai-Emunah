@@ -6,7 +6,9 @@
     <th>Status</th>
     <th>Phone Number</th>
     <th>Email</th>
-    <th>More Info</th>
+    <% if user_signed_in? %>
+      <th>More Info</th>
+    <% end %>
   </tr>
 
   <% @families.each do |family| %>
@@ -15,7 +17,9 @@
     <td><%= family.status %></td>
     <td><%= family.phone %></td>
     <td><%= family.email %></td>
-    <td><%= link_to "More Info about #{family.name} Family", family_path(family) %></td>
+    <% if user_signed_in? %> 
+      <td><%= link_to "More Info about #{family.name} Family", family_path(family) %></td>
+    <% end %>
   </tr>
   <% end %>
 </table>
