@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'users/new'
-  get 'signup'  => 'users#new'
+  # get 'users/new'
+  # get 'signup'  => 'users#new'
 
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   # The priority is based upon order of creation: first created -> highest priority.
