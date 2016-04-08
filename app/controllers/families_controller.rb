@@ -6,6 +6,9 @@ class FamiliesController < ApplicationController
   
   def show
     @family = Family.find(params[:id])
+    
+    @comments = @family.comments.order(:created_at).reverse_order
+    # byebug
   end
   
   def index

@@ -11,9 +11,6 @@ class CommentsController < ApplicationController
   end
   
   def index
-    # @comments = Comment.all
-    
     @comments = Comment.order(:created_at)
-    # @family.order(:created_at).reverse_order
   end
 end
