@@ -21,9 +21,10 @@ Scenario: view comments
   Then  I should see "Walter is the only member of the Johnson family"
   Then  I should not see "Tim and Ben are identical twins"
 
-Scenario: add comments
+Scenario: add comments in correct order
   Given I am on the "Johnson" family page
   And   I fill in "Content" with "Walter loves to play golf"
   When  I press "Add Comment"
   Then  I should be on the "Johnson" family page
   And   I should see "Walter loves to play golf"
+  And   comment "Walter loves to play golf" should be before "Walter is the only member of the Johnson family"
