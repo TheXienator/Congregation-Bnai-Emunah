@@ -1,27 +1,14 @@
 
-<h1>Edit Existing Movie</h1>
+<h1>Edit Existing Family</h1>
 
-<%= form_tag(family_path(@family), :method => :put) do %>
+<%= simple_form_for @family do |f|%>
 
-  <%= label :family, :name, 'Name' %>
-  <%= text_field :family, 'name' %>
-
-  <%= label :family, :people, 'Members'%>
-  <%= text_field :family, 'people'%>
-  
-  <%= label :family, :status, 'Status'%>
-  <!--new/outreach member, longtime member, non member, prospective, Friend of BE, ex member, or deceased.-->
-  <%= select :family, 'status', 
-    options_for_select([['New','New'],['Longtime','Longtime'],['Non','Non'],['Prospective','Prospective'],
-    ['Friend of BE', 'Friend of BE'], ['Ex', 'Ex'], ['Deceased', 'Deceased']
-    ]) %>
-
-  <%= label :family, :phone, 'Phone'%>
-  <%= text_field :family, 'phone'%>
-
-  <%= label :family, :email, 'Email'%>
-  <%= text_field :family, 'email'%>
-
-  <%= submit_tag 'Update Family Information'%>
-  
+  <%= f.input :name, label: 'Name' %>
+  <%= f.input :people, label: 'Members' %>
+  <%= f.input :status, collection: ['New', 'Longtime', 'Non', 
+  'Prospective', 'Friend of BE', 'Ex', 'Deceased'], prompt: 'Status', selected: 'New' %>
+    
+  <%= f.input :phone, label: 'Phone' %>
+  <%= f.input :email, label: 'Email' %>
+  <%= f.button :submit, label: 'Update Family Information' %>
 <% end %>

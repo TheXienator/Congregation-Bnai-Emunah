@@ -1,0 +1,27 @@
+<h1>Welcome to the Users Page</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Admin</th>
+    <% if current_user.admin? %>
+      <th>More Info</th>
+    <% end %>
+  </tr>
+
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.admin %></td>
+    <% if current_user.admin? %> 
+      <td><%= link_to "More Info about #{user.name}", user_path(user) %></td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>
+
+<% if user_signed_in? %>
+  <!--<%=link_to "Add User", new_user_path%>-->
+<% end %>
