@@ -1,14 +1,8 @@
 class FamiliesController < ApplicationController
   
-  def family_params
-    params.require(:family).permit(:name, :people, :status, :phone, :email)
-  end
+  before_action :find_family, only: [:show, :edit, :update, :destroy]
   
   def show
-    @family = Family.find(params[:id])
-    
-    @comments = @family.comments.order(:created_at).reverse_order
-    # byebug
   end
   
   def index
@@ -16,11 +10,12 @@ class FamiliesController < ApplicationController
   end
   
   def edit 
-    @family = Family.find(params[:id])
   end
   
   def update
-    
+    @family.update_attributes!(family_params)
+    flash[:notice] = "#{@family.name} family was successfully updated."
+    redirect_to family_path(@family)
   end
     
   def new
@@ -34,10 +29,19 @@ class FamiliesController < ApplicationController
   end
   
   def destroy
-    @family = Family.find(params[:id])
     @family.destroy
     flash[:notice] = "Family '#{@family.name}' deleted."
     redirect_to families_path
   end
+  
+  private
+  
+    def family_params
+      params.require(:family).permit(:name, :people, :status, :phone, :email)
+    end
+    
+    def find_family
+      @family = Family.find(params[:id])
+    end
   
 end

@@ -4,42 +4,40 @@
   <b>Members:</b>
   <%= @family.people %>
 </p>
-
 <p>
   <b>Status:</b>
   <%= @family.status %>
 </p>
-
 <p>  
   <b>Email:</b>
   <%= @family.email %>
 </p>
-
 <p>
   <b>Phone:</b>
   <%= @family.phone %>
 </p>
 
 <%= link_to 'Edit', edit_family_path(@family) %>
-<%= button_to 'Delete Family', family_path(@family), method: :delete, data: { confirm: 'Are you sure you want to delete this family?' } %>
+<% if current_user and current_user.admin? %>
+  <%= button_to 'Delete Family', family_path(@family), method: :delete, data: { confirm: 'Are you sure you want to delete this family?' } %>
+<% end %>
 <%= link_to 'Back to family list', families_path %>
 
 </br>
 
 <h3>Comments:</h3>
+<<<<<<< HEAD
 <% @comments.each do |comment| %>
   <div class = "center jumbotron">
     <%= comment.content %>
     <%= link_to 'Edit', edit_family_comment_path(@family, comment) %>
   </div>
 <% end %>
+=======
+<%= render @family.comments.reverse %>
+>>>>>>> 5967fd5e9302e1d3e50d2a788a8813c38aafda9f
 
 </br>
 
 <h6>Add a comment:</h6>
-<%= form_for ([@family, @family.comments.build]) do |f| %>
-  <%= f.label :content, 'Content' %>
-  <%= f.text_area :content %>
-  
-  <%= submit_tag 'Add Comment'%>
-<% end %>
+<%= render 'comments/form' %>
