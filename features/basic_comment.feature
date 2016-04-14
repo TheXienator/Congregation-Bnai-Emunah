@@ -32,13 +32,6 @@ Scenario: view comments
 
 Scenario: add comments in correct order
   Given I am on the "Johnson" family page
-<<<<<<< HEAD
-  And   I fill in "Content" with "Walter loves to play golf"
-  When  I press "Add Comment"
-  Then  I should be on the "Johnson" family page
-  And   I should see "Walter loves to play golf"
-  And   comment "Walter loves to play golf" should be before "Walter is the only member of the Johnson family"
-=======
   And I fill in "Comment" with "Walter loves to play golf"
   When I press "Create Comment"
   Then I should be on the "Johnson" family page
@@ -50,4 +43,3 @@ Scenario: most recent comments are displayed first
   When I press "Create Comment"
   Then I should see "Walter just had a child" before "Walter is the only member"
   
->>>>>>> 5967fd5e9302e1d3e50d2a788a8813c38aafda9f

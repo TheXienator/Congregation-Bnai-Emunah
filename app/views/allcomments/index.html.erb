@@ -1,0 +1,17 @@
+<h1>All comments:</h1>
+
+<% @allcomments.each do |comment| %>
+  
+  <div class = "center jumbotron">
+    <%= " From " %>
+    <%= Family.find(comment.family_id).name%>
+    <%= " family:" %>
+    <%= simple_format "\n"%>
+    
+    <%= comment.content %>
+    <%= simple_format "\n" %>
+    <%= distance_of_time_in_words_to_now(comment.created_at, options = {})  %>
+    <%= " ago.  " %>
+    <%= link_to 'Edit', edit_family_comment_path(comment.family, comment) %>
+  </div>
+<% end %>

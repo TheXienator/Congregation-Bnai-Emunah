@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'allcomments/new'
+
+  get 'allcomments/index'
+
   devise_for :users
   # get 'users/new'
   # get 'signup'  => 'users#new'
