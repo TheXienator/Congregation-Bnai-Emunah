@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
   end
   
   def index
-    @comments = Comment.all
+    @comments = Comment.order(:created_at).reverse
   end
   
   def edit

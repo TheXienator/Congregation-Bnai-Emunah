@@ -1,0 +1,6 @@
+<h1>Edit Task</h1>
+<%= simple_form_for([@user, @task]) do |f| %>
+  <%= f.input :content, label: "Comment" %>
+  <%= f.input :priority, collection: ['Normal', 'Urgent'], selected: @task.priority %>
+  <%= f.button :submit %>
+<% end %>

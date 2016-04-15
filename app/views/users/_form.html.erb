@@ -3,8 +3,7 @@
   <%= f.input :name, label: 'Name' %>
   <%= f.input :email, label: 'Email' %>
   <%= f.input :password, label: 'Password' %>
-  <%= f.input :password_confimration, label: 'Confirm password' %>
+  <%= f.input :password_confirmation, label: 'Confirm password' %>
   <%= f.input :admin, collection: [true, false], selected: false %>
-  
   <%= f.button :submit, label: 'Create User' %>
 <% end %>

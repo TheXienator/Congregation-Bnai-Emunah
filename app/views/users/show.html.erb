@@ -21,12 +21,13 @@
 </br>
 
 <h3>Pending Tasks:</h3>
+<%= render @user.tasks %>
 
 </br>
 
 <% if current_user.admin? %> 
   <h4>Add a Task:</h4>
-  
+    <%= render 'tasks/form' %>
   </br>
 <% end %>
 

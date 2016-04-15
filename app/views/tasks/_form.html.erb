@@ -1,0 +1,5 @@
+<%= simple_form_for([@user, @user.tasks.build]) do |f| %>
+  <%= f.input :content, label: "Task" %>
+  <%= f.input :priority, label: "Priority", collection: ['Normal', 'Urgent'], selected: 'Normal' %>
+  <%= f.button :submit %>
+<% end %>

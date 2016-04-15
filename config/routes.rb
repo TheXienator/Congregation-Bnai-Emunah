@@ -9,11 +9,13 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   authenticated :user do
-    root 'families#index', as: :authenticated_root
+    root 'comments#index', as: :newsfeed
     resources :families do
       resources :comments
     end
-    resources :users
+    resources :users do
+      resources :tasks
+    end
     get 'profile' => 'users#profile', as: :profile
     post 'create_user' => 'users#create', as: :create_user   
   end
