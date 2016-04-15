@@ -18,6 +18,10 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
   
+  def profile
+    @user = current_user
+  end
+  
   def new
     @user = User.new
   end

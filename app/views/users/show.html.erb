@@ -18,3 +18,16 @@
 <% end %>
 <%= link_to 'Back to user list', users_path %>
 
+</br>
+
+<h3>Pending Tasks:</h3>
+
+</br>
+
+<% if current_user.admin? %> 
+  <h4>Add a Task:</h4>
+  
+  </br>
+<% end %>
+
+<h6>Completed Tasks:</h6>

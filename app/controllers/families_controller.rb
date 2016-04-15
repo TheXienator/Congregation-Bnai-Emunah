@@ -24,7 +24,7 @@ class FamiliesController < ApplicationController
   
   def create
     @family = Family.create!(family_params)
-    flash[:notice] = "#{@family.name} Family was successfully created."
+    flash[:notice] = "#{@family.name} family was successfully created."
     redirect_to families_path
   end
   

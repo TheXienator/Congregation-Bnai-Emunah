@@ -14,6 +14,8 @@ Rails.application.routes.draw do
       resources :comments
     end
     resources :users
+    get 'profile' => 'users#profile', as: :profile
+    post 'create_user' => 'users#create', as: :create_user   
   end
   
   devise_scope :user do
