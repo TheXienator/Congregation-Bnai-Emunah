@@ -1,5 +1,31 @@
 <h1>Welcome to the Families Page</h1>
 
+<!--# => <input id="accept" name="accept" type="checkbox" value="1" /> <br>-->
+<!--# => <input id="rock" name="rock" type="checkbox" value="rock music" /> <br>-->
+<!--# => <input checked="checked" id="receive_email" name="receive_email" type="checkbox" value="yes" /> <br>-->
+<!--# => <input class="accept_tos" id="tos" name="tos" type="checkbox" value="yes" /> <br>-->
+<!--# => <input disabled="disabled" id="eula" name="eula" type="checkbox" value="accepted" />-->
+<!--<br>-->
+<!--<ul>-->
+<!--  <% @families.each do |role| %>-->
+<!--      <li>-->
+<!--        <%= check_box_tag 'role_ids[]', role.id -%>-->
+<!--        <%= h role.status -%>-->
+<!--      </li>-->
+<!--  <% end %>-->
+<!--  <input type="submit" value="Filter" />-->
+<!--</ul>-->
+<!--<br><br><br>-->
+
+<form class="filter_form", method="get">
+  <% @families.each do |a| %>
+    <%= check_box_tag("status", a.status) %>
+    <%= a.status %>
+  <% end %>
+  <input type="submit" value="Filter" />
+</form>
+
+
 <table>
   <tr>
     <th>Family Name</th>
