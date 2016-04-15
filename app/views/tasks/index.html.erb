@@ -1,8 +1,0 @@
-<h1>Newsfeed:</h1>
-
-<% @comments.each do |comment| %>
-  <div class = "center jumbotron">
-    <p>Comment created by <%= comment.user.name %> about the <%= comment.family.name %> Family</p>
-    <%= render comment %>
-  </div>
-<% end %>

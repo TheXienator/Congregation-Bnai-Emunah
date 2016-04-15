@@ -4,6 +4,6 @@
 
 <% if task.user_id == current_user.id or current_user.admin? %>
   <%= link_to 'Edit', edit_user_task_path(task.user, task) %>
-  <%= link_to 'Delete', user_task_path(task.user, task), method: :delete, 
-    data: {confirm: "Are you sure?" } %>
+  <%= link_to 'Delete', user_task_path(task.user, task), method: :delete %> 
+    <!--data: {confirm: "Are you sure?" } %>-->
 <% end %>

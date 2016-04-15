@@ -6,15 +6,11 @@ class TasksController < ApplicationController
   def create
     @task = @user.tasks.create(task_params)
     @task.admin_id = current_user.id
-    if @task.save
-      redirect_to user_path(@user)
-    else
-      render 'new'
-    end
-  end
-  
-  def index
-    @tasks = Task.order(:created_at).reverse
+    @task.save
+    redirect_to user_path(@user)
+    # else
+    #   render 'new'
+    # end
   end
   
   def edit

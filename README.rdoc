@@ -4,8 +4,6 @@
 
 {<img src="https://codeclimate.com/github/TheXienator/Congregation-Bnai-Emunah/badges/coverage.svg" />}[https://codeclimate.com/github/TheXienator/Congregation-Bnai-Emunah/coverage]
 
-<a href="https://codeclimate.com/github/TheXienator/Congregation-Bnai-Emunah"><img src="https://codeclimate.com/github/TheXienator/Congregation-Bnai-Emunah/badges/issue_count.svg" /></a>
-
 == Travis CI Badge
 
 {<img src="https://travis-ci.org/TheXienator/Congregation-Bnai-Emunah.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/TheXienator/Congregation-Bnai-Emunah]

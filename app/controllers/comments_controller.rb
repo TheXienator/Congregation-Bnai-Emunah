@@ -6,11 +6,11 @@ class CommentsController < ApplicationController
   def create
     @comment = @family.comments.create(comment_params)
     @comment.user_id = current_user.id
-    if @comment.save
-      redirect_to family_path(@family)
-    else
-      render 'new'
-    end
+    @comment.save
+    redirect_to family_path(@family)
+    # else
+    #   render 'new'
+    # end
   end
   
   def index

@@ -43,3 +43,17 @@ Scenario: most recent comments are displayed first
   When I press "Create Comment"
   Then I should see "Walter just had a child" before "Walter is the only member"
   
+Scenario: update comments
+  Given I am on the "Johnson" family page
+  And I follow "Edit"
+  And I fill in "Comment" with "Walter is the only living member"
+  When I press "Update Comment"
+  Then I should be on the "Johnson" family page
+  Then I should see "Walter is the only living member"
+  Then I should not see "Walter is the only member"
+  
+Scenario: delete comments
+  Given I am on the "Johnson" family page
+  And I follow "Delete"
+  Then I should be on the "Johnson" family page
+  Then I should not see "Walter is the only member"

@@ -37,10 +37,10 @@ Scenario: add families
   
 Scenario: update families
   Given I am on the "Johnson" family page
-  When I follow "Edit"
+  When I follow "Edit Family"
   Then I should be on the edit page for the "Johnson" family
   And I fill in "Email" with "newJohnson@gmail.com"
-  And I press "Update Family Information"
+  And I press "Update Family"
   Then I should be on the "Johnson" family page
   Then I should not see "an@email.com"
   Then I should see "newJohnson@gmail.com"
@@ -48,9 +48,9 @@ Scenario: update families
 Scenario: delete families
   Given I am on the "Johnson" family page
   When I press "Delete"
-  And I follow "OK"
   Then I should be on the families page
-  And I should not see "Johnson"
+  And I should not see "More Info about Johnson Family"
+  And I should see "More Info about Hamilton Family"
   
 Scenario: sort families alphabetically
   Given I am on the families page

@@ -19,14 +19,22 @@ module NavigationHelpers
       '/users/sign_in'
     when /^the families page/
       '/families'
+    when /^the profile page/
+      '/profile'
+    when /^the users page/
+      '/users'
+    when /^the new page for "Families"/
+      '/families/new'
     when /^the "(.*)" family page/ then
       family = Family.find_by name: $1
       "/families/#{family.id}"
-    when /^the new page for "Families"/
-      '/families/new'
     when /^the edit page for the "(.*)" family/ then
       family = Family.find_by name: $1
       "/families/#{family.id}/edit"
+    when /^the user page for "(.*)"/ then
+      user = User.find_by name: $1
+      "/users/#{user.id}"
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

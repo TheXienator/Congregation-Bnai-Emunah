@@ -2,7 +2,7 @@ Feature: creation and view of users
  
   As an organization leader
   So that I can allow my officials to create accounts and work independently
-  I want to be able to create users
+  I want to have administrators able to create and edit users
  
 Background: users in database
  
@@ -11,14 +11,40 @@ Background: users in database
   | Jason | jason@gmail.com   | password  | true    |
   | Tim   | tim@gmail.com     | password  | false   |
   
-  Given the following families exist:
-  | name      | people   | status      | phone         | email         | 
-  | Johnson   | Walter   | New         | (483)290-8483 | an@email.com  |
-  | Hamilton  | Tim, Ben | Prospective | (542)098-4329 | ham@ilton.com |
+  Given I am on the sign in page
 
 Scenario: I can log in to an existing account
-  Given I am on the sign in page
-  And I fill in "Email" with "jason@gmail.com"
+  Given I fill in "Email" with "jason@gmail.com"
   And I fill in "Password" with "password"
   And I press "Log in"
   Then I should be on the home page
+
+Scenario: Only administrators can view other users
+  Given I fill in "Email" with "tim@gmail.com"
+  And I fill in "Password" with "password"
+  And I press "Log in"
+  Then I should not see "Users"
+  
+  When I follow "Sign Out"
+  And I go to the sign in page
+  And I fill in "Email" with "jason@gmail.com"
+  And I fill in "Password" with "password"
+  And I press "Log in"
+  Then I should see "Users"
+  
+  When I go to the users page
+  Then I should see "Jason"
+  Then I should see "Tim"
+
+Scenario: administrators can update users
+  Given I fill in "Email" with "jason@gmail.com"
+  And I fill in "Password" with "password"
+  And I press "Log in"
+  When I go to the user page for "Tim"
+  And I follow "Edit User"
+  And I fill in "Name" with "Terry"
+  And I fill in "Email" with "terry@gmail.com"
+  And I press "Update User"
+  Then I should be on the user page for "Terry"
+  Then I should see "Terry"
+  Then I should not see "Tim"
