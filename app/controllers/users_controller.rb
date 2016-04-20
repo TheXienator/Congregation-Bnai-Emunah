@@ -27,6 +27,9 @@ class UsersController < ApplicationController
   end
   
   def create
+    @user = User.create!(user_params)
+    flash[:notice] = "#{@user.name} was successfully created."
+    redirect_to users_path
   end
   
   def destroy 
@@ -36,6 +39,6 @@ class UsersController < ApplicationController
   private
   
     def user_params
-      params.require(:user).permit(:name, :email, :admin)
+      params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
     end
 end

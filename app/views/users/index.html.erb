@@ -22,6 +22,6 @@
   <% end %>
 </table>
 
-<% if user_signed_in? %>
-  <!--<%=link_to "Add User", new_user_path%>-->
+<% if current_user.admin? %>
+  <%= link_to "Add User", new_user_path %>
 <% end %>

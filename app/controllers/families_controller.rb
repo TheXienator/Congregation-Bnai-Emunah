@@ -1,7 +1,8 @@
 class FamiliesController < ApplicationController
   
   before_action :find_family, only: [:show, :edit, :update, :destroy]
-  
+  before_action :get_statuses, only: [:edit, :new]
+
   def show
   end
   
@@ -42,6 +43,11 @@ class FamiliesController < ApplicationController
     
     def find_family
       @family = Family.find(params[:id])
+    end
+    
+    def get_statuses
+      @statuses = ['New Member', 'Longtime', 'Non-Member', 'Prospective', 
+                   'In Reach', 'Friend of BE', 'Ex-Member', 'Deceased']
     end
   
 end
