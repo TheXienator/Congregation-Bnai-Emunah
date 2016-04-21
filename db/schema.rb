@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415215535) do
+ActiveRecord::Schema.define(version: 20160421050455) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
     t.integer  "family_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "user_id"
+    t.boolean  "confidential"
   end
 
   add_index "comments", ["family_id"], name: "index_comments_on_family_id"
