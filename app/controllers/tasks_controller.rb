@@ -6,7 +6,9 @@ class TasksController < ApplicationController
   def create
     @task = @user.tasks.create(task_params)
     @task.admin_id = current_user.id
-    @task.save
+    if @task.save
+      TaskMailer.notify_task(@user, @task, current_user).deliver
+    end
     redirect_to user_path(@user)
     # else
     #   render 'new'
