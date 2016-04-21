@@ -3,7 +3,10 @@
 <p>Assigned by <%= User.find(task.admin_id).name %> <%= time_ago_in_words(task.created_at)%> ago</p>
 
 <% if task.user_id == current_user.id or current_user.admin? %>
-  <%= link_to 'Edit', edit_user_task_path(task.user, task) %>
+  <% if not task.completed? %>
+    <%= link_to 'Edit', edit_user_task_path(task.user, task) %>
+    <%= button_to 'Finish', finish_task_path(@user, task), method: :finish %>
+  <% end %>
   <%= link_to 'Delete', user_task_path(task.user, task), method: :delete %> 
     <!--data: {confirm: "Are you sure?" } %>-->
 <% end %>

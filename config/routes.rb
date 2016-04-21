@@ -15,7 +15,8 @@ Rails.application.routes.draw do
       resources :tasks
     end
     get 'profile' => 'users#profile', as: :profile
-    post 'create_user' => 'users#create', as: :create_user   
+    post 'create_user' => 'users#create', as: :create_user
+    post '/users/:user_id/tasks/:id/finish(.:format)' => 'tasks#finish', as: :finish_task
   end
   
   devise_scope :user do

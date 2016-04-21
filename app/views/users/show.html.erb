@@ -7,6 +7,10 @@
   <b>Email:</b>
   <%= @user.email %>
 </p>
+<p>  
+  <b>Phone:</b>
+  <%= @user.phone %>
+</p>
 <p>
   <b>Admin Status:</b>
   <%= @user.admin %>
@@ -22,7 +26,7 @@
 </br>
 
 <h3>Pending Tasks:</h3>
-<%= render @user.tasks %>
+<%= render @pending_tasks.reverse %>
 
 </br>
 
@@ -33,3 +37,4 @@
 <% end %>
 
 <h6>Completed Tasks:</h6>
+<%= render @completed_tasks.reverse %>

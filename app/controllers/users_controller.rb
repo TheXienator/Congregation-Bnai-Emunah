@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @user_tasks = Task.where(user_id: @user.id)
+    @pending_tasks = @user_tasks.where(completed: false)
+    @completed_tasks = @user_tasks.where(completed: true)
   end
   
   def edit 
@@ -20,6 +23,9 @@ class UsersController < ApplicationController
   
   def profile
     @user = current_user
+    @user_tasks = Task.where(user_id: @user.id)
+    @pending_tasks = @user_tasks.where(completed: false)
+    @completed_tasks = @user_tasks.where(completed: true)
   end
   
   def new
@@ -32,13 +38,16 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
   
-  def destroy 
-    
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "User '#{@user.name}' deleted."
+    redirect_to users_path
   end
 
   private
   
     def user_params
-      params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :phone, :admin, :password, :password_confirmation)
     end
 end

@@ -4,6 +4,7 @@
 
   <%= f.input :name, label: 'Name' %>
   <%= f.input :email, label: 'Email' %>
+  <%= f.input :phone, label: 'Phone' %>
   <%= f.input :admin, collection: [true, false], selected: @user.admin %>
   <%= f.button :submit, label: 'Update User Information' %>
 <% end %>

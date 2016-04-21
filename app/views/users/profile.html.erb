@@ -15,8 +15,9 @@
 </br>
 
 <h3>Pending Tasks:</h3>
-<%= render @user.tasks %>
+<%= render @pending_tasks.reverse %>
 
 </br>
 
 <h6>Completed Tasks:</h6>
+<%= render @completed_tasks.reverse %>

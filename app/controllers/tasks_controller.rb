@@ -1,11 +1,12 @@
 class TasksController < ApplicationController
   
-  before_action :find_user, only: [:create, :edit, :update, :destroy]
-  before_action :find_task, only: [:destroy, :edit, :update]
+  before_action :find_user, only: [:create, :edit, :update, :destroy, :finish]
+  before_action :find_task, only: [:destroy, :edit, :update, :finish]
   
   def create
     @task = @user.tasks.create(task_params)
     @task.admin_id = current_user.id
+    @task.completed = false
     @task.save
     redirect_to user_path(@user)
     # else
@@ -14,6 +15,12 @@ class TasksController < ApplicationController
   end
   
   def edit
+  end
+  
+  def finish
+    @task.completed = true
+    @task.save!
+    redirect_to user_path(@user)
   end
   
   def update
