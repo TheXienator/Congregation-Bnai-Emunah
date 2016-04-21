@@ -35,6 +35,15 @@ class FamiliesController < ApplicationController
     redirect_to families_path
   end
   
+  def show_comments
+    if !current_user.admin?
+      coms = Comment.where("(confidential = ? AND family_id = ?) OR (confidential = ? AND user_id = ? AND family_id = ?)", false, @family.id, true, current_user.id, @family.id).order(:created_at).reverse
+    else
+      coms = Comment.where("family_id = ?", @family.id).order(:created_at).reverse
+    end
+  end
+  helper_method :show_comments
+  
   private
   
     def family_params
@@ -50,4 +59,5 @@ class FamiliesController < ApplicationController
                    'In Reach', 'Friend of BE', 'Ex-Member', 'Deceased']
     end
   
+    
 end

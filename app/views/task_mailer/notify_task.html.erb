@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Assigned with <%= @task.priority %> priority by <%= @current_user.name %> on <%= @task.created_at.in_time_zone("Pacific Time (US & Canada)").to_formatted_s(:long_ordinal) %>!</p>
+    <p> Your Task: </p>
+    <p><%= @task.content %></p>
+  </body>
+</html>
