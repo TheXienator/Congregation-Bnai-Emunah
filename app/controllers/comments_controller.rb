@@ -14,7 +14,11 @@ class CommentsController < ApplicationController
   end
   
   def index
-    @comments = Comment.order(:created_at).reverse
+    if !current_user.admin?
+      @comments = Comment.where("confidential = ? OR (confidential = ? AND user_id = ?)", false, true, current_user.id).order(:created_at).reverse
+    else
+      @comments = Comment.order(:created_at).reverse
+    end
   end
   
   def edit
@@ -35,7 +39,7 @@ class CommentsController < ApplicationController
   
   private 
     def comment_params
-      params.require(:comment).permit(:content)
+      params.require(:comment).permit(:content, :confidential)
     end
     
     def find_family
