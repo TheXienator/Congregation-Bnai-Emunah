@@ -28,9 +28,9 @@ Background: families in database
   | Hamilton  | Tim and Ben are identical twins                 | 1       |
   
   Given the following tasks exist:
-  | content                           | priority  | user_id | admin_id  |
-  | Talk to Johnson                   | Normal    | 2       | 1         |
-  | Convince Hamilton to come to mass | Urgent    | 3       | 1         |
+  | content                           | priority  | user_id | admin_id  | completed |
+  | Talk to Johnson                   | Normal    | 2       | 1         | false     |
+  | Convince Hamilton to come to mass | Urgent    | 3       | 1         | false     |
   
   
 Scenario: view my tasks

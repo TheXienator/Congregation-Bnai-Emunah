@@ -4,7 +4,7 @@ The last time you signed in was <%= time_ago_in_words(current_user.last_sign_in_
 
 <% @comments.each do |comment| %>
   <div class = "center jumbotron">
-    <p>Comment created by <%= comment.user.name %> about the <%= comment.family.name %> Family</p>
+    <p><%= comment.user.name %> on the <%= comment.family.name %> Family</p>
     <%= render comment %>
   </div>
 <% end %>

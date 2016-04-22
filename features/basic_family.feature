@@ -31,6 +31,7 @@ Scenario: add families
   When I follow "Add Family"
   Then I should be on the new page for "Families"
   And I fill in "Name" with "Xie"
+  And I fill in "Members" with "Jason"
   And I press "Create Family"
   Then I should be on the families page
   And I should see "Xie"

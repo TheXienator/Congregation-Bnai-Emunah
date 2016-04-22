@@ -21,9 +21,9 @@ Background: families in database
   | Hamilton  | Tim, Ben | Prospective |  (542)098-4329 | ham@ilton.com |
 
   Given the following comments exist:
-  | family    | content                                         | user_id |
-  | Johnson   | Walter is the only member of the Johnson family | 1       |
-  | Hamilton  | Tim and Ben are identical twins                 | 1       |
+  | family    | content                                         | user_id | confidential  |
+  | Johnson   | Walter is the only member of the Johnson family | 1       | false         |
+  | Hamilton  | Tim and Ben are identical twins                 | 1       | false         |
   
 Scenario: view comments
   Given I am on the "Johnson" family page

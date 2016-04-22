@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421050455) do
+ActiveRecord::Schema.define(version: 20160421215053) do
 
   create_table "comments", force: :cascade do |t|
-    t.string   "content"
+    t.text     "content"
     t.integer  "family_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20160421050455) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "content"
+    t.text     "content"
     t.string   "priority"
     t.integer  "user_id"
     t.integer  "admin_id"
