@@ -33,19 +33,31 @@ Scenario: view comments
   Then I should see "Walter is the only member of the Johnson family"
   Then I should not see "Tim and Ben are identical twins"
 
-Scenario: view comments as administrator
+Scenario: view comments as administrator on family and home page
   Given I am on the "Johnson" family page
   Then I should see "Walter is the only member of the Johnson family"
   Then I should see "Walter is terminally ill"
   Then I should not see "Tim and Ben are identical twins"
   Then I should not see "Tim and Ben are terminally ill"
   
-Scenario: view comments as normal user
+  Given I am on the home page
+  Then I should see "Walter is the only member of the Johnson family"
+  Then I should see "Walter is terminally ill"
+  Then I should see "Tim and Ben are identical twins"
+  Then I should see "Tim and Ben are terminally ill"  
+  
+Scenario: view comments as normal user on family and home page
   Given I follow "Sign Out"
   Then I go to the sign in page
   And I fill in "Email" with "chris@gmail.com"
   And I fill in "Password" with "password"
   And I press "Log in"
+  
+  Given I am on the home page
+  Then I should see "Walter is the only member of the Johnson family"
+  Then I should not see "Walter is terminally ill"
+  Then I should see "Tim and Ben are identical twins"
+  Then I should not see "Tim and Ben are terminally ill"
   
   Given I am on the "Johnson" family page
   Then I should see "Walter is the only member of the Johnson family"
