@@ -9,6 +9,7 @@ Background: families in database
   Given the following users exist:
   | name  | email             | password  | admin   |
   | Jason | jason@gmail.com   | password  | true    |
+  | Chris | chris@gmail.com   | password  | false   |
   
   And I am on the sign in page
   And I fill in "Email" with "jason@gmail.com"
@@ -23,12 +24,34 @@ Background: families in database
   Given the following comments exist:
   | family    | content                                         | user_id | confidential  |
   | Johnson   | Walter is the only member of the Johnson family | 1       | false         |
+  | Johnson   | Walter is terminally ill                        | 1       | true          |
   | Hamilton  | Tim and Ben are identical twins                 | 1       | false         |
+  | Hamilton  | Tim and Ben are terminally ill                  | 1       | true          |
   
 Scenario: view comments
   Given I am on the "Johnson" family page
   Then I should see "Walter is the only member of the Johnson family"
   Then I should not see "Tim and Ben are identical twins"
+
+Scenario: view comments as administrator
+  Given I am on the "Johnson" family page
+  Then I should see "Walter is the only member of the Johnson family"
+  Then I should see "Walter is terminally ill"
+  Then I should not see "Tim and Ben are identical twins"
+  Then I should not see "Tim and Ben are terminally ill"
+  
+Scenario: view comments as normal user
+  Given I follow "Sign Out"
+  Then I go to the sign in page
+  And I fill in "Email" with "chris@gmail.com"
+  And I fill in "Password" with "password"
+  And I press "Log in"
+  
+  Given I am on the "Johnson" family page
+  Then I should see "Walter is the only member of the Johnson family"
+  Then I should not see "Walter is terminally ill"
+  Then I should not see "Tim and Ben are identical twins"
+  Then I should not see "Tim and Ben are terminally ill"
 
 Scenario: add comments
   Given I am on the "Johnson" family page
