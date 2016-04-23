@@ -1,6 +1,7 @@
 <h1>Welcome to the Families Page</h1>
 
-<table>
+
+<table class="table table-striped">
   <tr>
     <th>Family Name</th>
     <th>Status</th>
@@ -10,19 +11,24 @@
       <th>More Info</th>
     <% end %>
   </tr>
-
+  
+  
+  
   <% @families.each do |family| %>
-  <tr>
-    <td><%= family.display_name %></td>
-    <td><%= family.status %></td>
-    <td><%= family.phone %></td>
-    <td><%= family.email %></td>
-    <% if user_signed_in? %> 
-      <td><%= link_to "More Info about #{family.name} Family", family_path(family) %></td>
-    <% end %>
-  </tr>
+    <tr>
+        
+      <td><%= family.display_name %></td>
+      <td><%= family.status %></td>
+      <td><%= family.phone %></td>
+      <td><%= family.email %></td>
+      <% if user_signed_in? %> 
+        <td><%= link_to "More Info about #{family.name} Family", family_path(family) %></td>
+      <% end %>
+      
+    </tr>
   <% end %>
 </table>
+
 
 <% if user_signed_in? %>
   <%=link_to "Add Family", new_family_path%>

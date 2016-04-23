@@ -1,10 +1,7 @@
-The last time you signed in was <%= time_ago_in_words(current_user.last_sign_in_at)%> ago
-
 <h1>Newsfeed:</h1>
 
+The last time you signed in was <%= time_ago_in_words(current_user.last_sign_in_at)%> ago
+
 <% @comments.each do |comment| %>
-  <div class = "center jumbotron">
-    <p><%= comment.user.name %> on the <%= comment.family.name %> Family</p>
     <%= render comment %>
-  </div>
 <% end %>
