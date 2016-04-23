@@ -1,0 +1,23 @@
+<h2>Welcome <%=@user.name%></h2>
+<p>  
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+<p>
+  <b>Admin Status:</b>
+  <%= @user.admin %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %>
+<%= button_to 'Delete Account', user_path(@user), method: :delete %>
+<!--, data: { confirm: 'Are you sure you want to delete your account?' } %>-->
+
+</br>
+
+<h3>Pending Tasks:</h3>
+<%= render @pending_tasks.reverse %>
+
+</br>
+
+<h6>Completed Tasks:</h6>
+<%= render @completed_tasks.reverse %>

@@ -1,4 +1,6 @@
 <%= simple_form_for([@family, @family.comments.build]) do |f| %>
   <%= f.input :content, label: "Comment" %>
+  <%= f.label :confidential, "Confidential" %>
+  <%= f.check_box :confidential, label: "Confidential" %>
   <%= f.button :submit %>
 <% end %>

@@ -17,15 +17,17 @@
   <%= @family.phone %>
 </p>
 
-<%= link_to 'Edit', edit_family_path(@family) %>
+<%= link_to 'Edit Family', edit_family_path(@family) %>
 <% if current_user and current_user.admin? %>
-  <%= button_to 'Delete Family', family_path(@family), method: :delete, data: { confirm: 'Are you sure you want to delete this family?' } %>
+  <%= button_to 'Delete Family', family_path(@family), method: :delete %>
+  <!--data: { confirm: 'Are you sure you want to delete this family?' } %>-->
 <% end %>
 <%= link_to 'Back to family list', families_path %>
 
 </br>
 
 <h3>Comments:</h3>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <% @comments.each do |comment| %>
   <div class = "center jumbotron">
@@ -36,6 +38,9 @@
 =======
 <%= render @family.comments.reverse %>
 >>>>>>> 5967fd5e9302e1d3e50d2a788a8813c38aafda9f
+=======
+<%= render show_comments %>
+>>>>>>> 111d6eadff138a85febe9de859fd73e88471a0ad
 
 </br>
 

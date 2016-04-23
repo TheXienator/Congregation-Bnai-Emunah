@@ -1,8 +1,10 @@
+The last time you signed in was <%= time_ago_in_words(current_user.last_sign_in_at)%> ago
+
 <h1>Newsfeed:</h1>
+
 <% @comments.each do |comment| %>
-  <% comment.family.name family %>
   <div class = "center jumbotron">
-    <%= comment.content %>
-    <%= link_to 'Edit', edit_family_comment_path(comment.family, comment) %>
+    <p><%= comment.user.name %> on the <%= comment.family.name %> Family</p>
+    <%= render comment %>
   </div>
 <% end %>

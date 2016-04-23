@@ -1,5 +1,7 @@
 <h1>Edit Comment</h1>
 <%= simple_form_for([@family, @comment]) do |f| %>
   <%= f.input :content, label: "Comment" %>
+  <%= f.label :confidential, "Confidential" %>
+  <%= f.check_box :confidential, label: "Confidential" %>
   <%= f.button :submit %>
 <% end %>

@@ -1,12 +1,10 @@
-
 <h1>Edit Existing Family</h1>
 
 <%= simple_form_for @family do |f|%>
 
   <%= f.input :name, label: 'Name' %>
   <%= f.input :people, label: 'Members' %>
-  <%= f.input :status, collection: ['New', 'Longtime', 'Non', 
-  'Prospective', 'Friend of BE', 'Ex', 'Deceased'], prompt: 'Status', selected: 'New' %>
+  <%= f.input :status, collection: @statuses, prompt: 'Status', selected: @family.status %>
     
   <%= f.input :phone, label: 'Phone' %>
   <%= f.input :email, label: 'Email' %>

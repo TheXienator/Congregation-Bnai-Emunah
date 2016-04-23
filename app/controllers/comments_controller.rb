@@ -6,15 +6,27 @@ class CommentsController < ApplicationController
   def create
     @comment = @family.comments.create(comment_params)
     @comment.user_id = current_user.id
-    if @comment.save
-      redirect_to family_path(@family)
-    else
-      render 'new'
-    end
+    @comment.save
+    redirect_to family_path(@family)
+    # else
+    #   render 'new'
+    # end
+  end
+  
+  def new
+    @comment = Comment.new
   end
   
   def index
+<<<<<<< HEAD
     @comments = Comment.order(:created_at)
+=======
+    if !current_user.admin?
+      @comments = Comment.where("confidential = ? OR user_id = ?", false, current_user.id).order(:created_at).reverse
+    else
+      @comments = Comment.order(:created_at).reverse
+    end
+>>>>>>> 111d6eadff138a85febe9de859fd73e88471a0ad
   end
   
   def edit
@@ -35,7 +47,7 @@ class CommentsController < ApplicationController
   
   private 
     def comment_params
-      params.require(:comment).permit(:content)
+      params.require(:comment).permit(:content, :confidential)
     end
     
     def find_family
