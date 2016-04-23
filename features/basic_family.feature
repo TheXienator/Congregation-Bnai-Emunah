@@ -57,3 +57,9 @@ Scenario: sort families alphabetically
   Given I am on the families page
   Then I should see "Hamilton" before "Johnson"
   Then I should see "ham@ilton.com" before "an@email.com"
+  
+Scenario: search families
+  Given I am on the families page
+  When I fill in the search box with "Johnson"
+  Then I should see "Johnson"
+  Then I should not see "Hamilton"
