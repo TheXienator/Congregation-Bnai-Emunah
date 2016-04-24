@@ -1,7 +1,9 @@
 <h1>Newsfeed:</h1>
 
-The last time you signed in was <%= time_ago_in_words(current_user.last_sign_in_at)%> ago
+<div class="commentContainer">
+    The last time you signed in was <%= time_ago_in_words(current_user.last_sign_in_at)%> ago
+    <% @comments.each do |comment| %>
+        <%= render comment %>
+    <% end %>
+</div>
 
-<% @comments.each do |comment| %>
-    <%= render comment %>
-<% end %>
