@@ -1,6 +1,12 @@
 <h1>Edit Task</h1>
 <%= simple_form_for([@user, @task]) do |f| %>
-  <%= f.input :content, label: "Task" %>
-  <%= f.input :priority, collection: ['Normal', 'Urgent'], selected: @task.priority %>
-  <%= f.button :submit %>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <%= f.input :content, label: "Task" %>
+      <%= f.input :priority, collection: ['Normal', 'Urgent'], selected: @task.priority %>
+    </li>
+  </ul>
+  <div class = "buttonControl">
+    <%= f.button :submit %>
+  </div>
 <% end %>

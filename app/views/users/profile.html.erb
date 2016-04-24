@@ -1,23 +1,33 @@
 <h2>Welcome <%=@user.name%></h2>
-<p>  
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-<p>
-  <b>Admin Status:</b>
-  <%= @user.admin %>
-</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
-<%= button_to 'Delete Account', user_path(@user), method: :delete %>
-<!--, data: { confirm: 'Are you sure you want to delete your account?' } %>-->
-
-</br>
+<ul class="list-group">
+  <li class="list-group-item">
+    <p>  
+    <b>Email:</b>
+    <%= @user.email %></p>
+  </li>
+  <li class="list-group-item">
+    <p>
+      <b>Admin Status:</b>
+      <%= @user.admin %></p>
+  </li>
+  <li class="list-group-item">
+    <%= link_to 'Edit', edit_user_path(@user) %>
+    <%= button_to 'Delete Account', user_path(@user), method: :delete %>
+    <!--, data: { confirm: 'Are you sure you want to delete your account?' } %>-->
+  </li>
+</ul>
 
 <h3>Pending Tasks:</h3>
 <%= render @pending_tasks.reverse %>
 
 </br>
 
-<h6>Completed Tasks:</h6>
-<%= render @completed_tasks.reverse %>
+<ul class="list-group">
+  <li class="list-group-item">
+    <h6>Completed Tasks:</h6>
+  </li>
+  <li class="list-group-item">
+    <%= render @completed_tasks.reverse %>
+  </li>
+</ul>

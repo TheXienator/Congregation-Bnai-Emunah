@@ -3,10 +3,6 @@
     <table class="table table-condensed">
       <tbody>
         <tr>
-          <td><h5><%= comment.user.name %> on the <%= comment.family.name %> Family</h5></td>
-          <td><h5><%= time_ago_in_words(comment.created_at)%> ago</h5></td>
-        </tr>
-        <tr>
           <p><%= comment.content %></p>
         </tr>
         <tr>
@@ -17,6 +13,10 @@
           <%= link_to 'Delete', family_comment_path(comment.family, comment), method: :delete %> 
             <!--data: {confirm: "Are you sure?" } %>-->
           <% end %>
+        </tr>
+        <tr>
+          <td><h5><%= comment.user.name %> on the <%= comment.family.name %> Family</h5></td>
+          <td><h5><%= time_ago_in_words(comment.created_at)%> ago</h5></td>
         </tr>
       </tbody>
     </table>
