@@ -33,9 +33,6 @@ Scenario: view comments
   Then I should see "Walter is the only member of the Johnson family"
   Then I should not see "Tim and Ben are identical twins"
 
-<<<<<<< HEAD
-Scenario: add comments in correct order
-=======
 Scenario: view comments as administrator on family and home page
   Given I am on the "Johnson" family page
   Then I should see "Walter is the only member of the Johnson family"
@@ -69,15 +66,7 @@ Scenario: view comments as normal user on family and home page
   Then I should not see "Tim and Ben are terminally ill"
 
 Scenario: add comments
->>>>>>> 111d6eadff138a85febe9de859fd73e88471a0ad
   Given I am on the "Johnson" family page
-<<<<<<< HEAD
-  And   I fill in "Content" with "Walter loves to play golf"
-  When  I press "Add Comment"
-  Then  I should be on the "Johnson" family page
-  And   I should see "Walter loves to play golf"
-  And   comment "Walter loves to play golf" should be before "Walter is the only member of the Johnson family"
-=======
   And I fill in "Comment" with "Walter loves to play golf"
   When I press "Create Comment"
   Then I should be on the "Johnson" family page
@@ -89,9 +78,6 @@ Scenario: most recent comments are displayed first
   When I press "Create Comment"
   Then I should see "Walter just had a child" before "Walter is the only member"
   
-<<<<<<< HEAD
->>>>>>> 5967fd5e9302e1d3e50d2a788a8813c38aafda9f
-=======
 Scenario: update comments
   Given I am on the "Johnson" family page
   And I follow "Edit"
@@ -106,4 +92,12 @@ Scenario: delete comments
   And I follow "Delete"
   Then I should be on the "Johnson" family page
   Then I should not see "Walter is the only member"
->>>>>>> 111d6eadff138a85febe9de859fd73e88471a0ad
+
+Scenario: users can only view nonconfidential comments
+  Given I follow "Sign Out"
+  And I fill in "Email" with "chris@gmail.com"
+  And I fill in "Password" with "password"
+  And I press "Log in"
+  Given I am on the "Johnson" family page
+  Then I should see "Walter is the only member of the Johnson family"
+  Then I should not see "Tim is not a member of the Johnson family "
