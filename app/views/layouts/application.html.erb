@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
+  <%= render 'layouts/navbar' %>
+  
   <title>Congregation B'nai Emunah</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -17,7 +20,6 @@
 <!--  </div>-->
 <!--</header>-->
 
-  <%= render 'layouts/navbar' %>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
