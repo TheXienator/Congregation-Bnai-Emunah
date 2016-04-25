@@ -1,12 +1,20 @@
 <h1>Edit Existing User</h1>
 
-<%= simple_form_for @user do |f|%>
 
-  <%= f.input :name, label: 'Name' %>
-  <%= f.input :email, label: 'Email' %>
-  <%= f.input :phone, label: 'Phone' %>
-  <% if current_user.admin? %>
-    <%= f.input :admin, collection: [true, false], selected: @user.admin %>
-  <% end %>
+    <%= simple_form_for @user do |f|%>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <%= f.input :name, label: 'Name' %>
+          <%= f.input :email, label: 'Email' %>
+          <%= f.input :phone, label: 'Phone' %>
+          <% if current_user.admin? %>
+            <%= f.input :admin, collection: [true, false], selected: @user.admin %>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+  
+
+<div class = "buttonControl">
   <%= f.button :submit, label: 'Update User Information' %>
-<% end %>
+</div>

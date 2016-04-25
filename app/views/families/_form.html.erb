@@ -1,10 +1,16 @@
 <%= simple_form_for @family do |f|%>
 
-  <%= f.input :name, label: 'Name' %>
-  <%= f.input :people, label: 'Members' %>
-  <%= f.input :status, collection: @statuses, prompt: 'Status', selected: 'New Member' %>
-    
-  <%= f.input :phone, label: 'Phone' %>
-  <%= f.input :email, label: 'Email' %>
-  <%= f.button :submit, label: 'Add Family' %>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <%= f.input :name, label: 'Name' %>
+      <%= f.input :people, label: 'Members' %>
+      <%= f.input :status, collection: @statuses, prompt: 'Status', selected: 'New Member' %>
+      <%= f.input :phone, label: 'Phone' %>
+      <%= f.input :email, label: 'Email' %>
+    </li>
+  </ul>
+  
+  <div class = "buttonControl">
+    <%= f.button :submit, label: 'Add Family' %>
+  </div>
 <% end %>

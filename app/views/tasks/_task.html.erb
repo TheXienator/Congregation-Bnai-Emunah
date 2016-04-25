@@ -1,12 +1,23 @@
-<p><%= task.content %></p>
-<p><%= task.priority %></p>
-<p>Assigned by <%= User.find(task.admin_id).name %> <%= time_ago_in_words(task.created_at)%> ago</p>
-
-<% if task.user_id == current_user.id or current_user.admin? %>
-  <% if not task.completed? %>
-    <%= link_to 'Edit', edit_user_task_path(task.user, task) %>
-    <%= button_to 'Finish', finish_task_path(@user, task), method: :finish %>
+<ul class="list-group">
+  <li class="list-group-item">
+    <b>Task detail:</b></br>
+    <p><%= task.content %></p>
+  </li>
+  <li class="list-group-item">
+    <p><b>Priorit:</b>
+    <%= task.priority %></p>
+    <p><b>Assigned by: </b>
+    <%= User.find(task.admin_id).name %> <%= time_ago_in_words(task.created_at)%> ago</p>
+  </li>
+  <% if task.user_id == current_user.id or current_user.admin? %>
+    <li class="list-group-item">
+      <b>Action:</b></br>
+        <% if not task.completed? %>
+          <%= link_to 'Edit', edit_user_task_path(task.user, task) %>
+          <%= button_to 'Finish', finish_task_path(@user, task), method: :finish %>
+        <% end %>
+        <%= link_to 'Delete', user_task_path(task.user, task), method: :delete %> 
+          <!--data: {confirm: "Are you sure?" } %>-->
+    </li>
   <% end %>
-  <%= link_to 'Delete', user_task_path(task.user, task), method: :delete %> 
-    <!--data: {confirm: "Are you sure?" } %>-->
-<% end %>
+</ul>

@@ -1,8 +1,24 @@
-<h5><%= time_ago_in_words(comment.created_at)%> ago</h5>
-<p><%= comment.content %></p>
-
-<% if comment.user_id == current_user.id or current_user.admin? %>
-  <%= link_to 'Edit', edit_family_comment_path(comment.family, comment) %>
-  <%= link_to 'Delete', family_comment_path(comment.family, comment), method: :delete %> 
-    <!--data: {confirm: "Are you sure?" } %>-->
-<% end %>
+<div class = "center jumbotron">
+  <div class="comment-container">
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <p><%= comment.content %></p>
+        </tr>
+        <tr>
+          <% if comment.user_id == current_user.id or current_user.admin? %>
+          
+          <%= link_to 'Edit', edit_family_comment_path(comment.family, comment) %>
+          <h> &nbsp;&nbsp;&nbsp;&nbsp; </h>
+          <%= link_to 'Delete', family_comment_path(comment.family, comment), method: :delete %> 
+            <!--data: {confirm: "Are you sure?" } %>-->
+          <% end %>
+        </tr>
+        <tr>
+          <td><h5><%= comment.user.name %> on the <%= comment.family.name %> Family</h5></td>
+          <td><h5><%= time_ago_in_words(comment.created_at)%> ago</h5></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

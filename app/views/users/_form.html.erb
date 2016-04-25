@@ -1,10 +1,17 @@
 <%= simple_form_for @user, url: create_user_path do |f|%>
-
-  <%= f.input :name, label: 'Name' %>
-  <%= f.input :email, label: 'Email' %>
-  <%= f.input :phone, label: 'Phone' %>
-  <%= f.input :password, label: 'Password' %>
-  <%= f.input :password_confirmation, label: 'Confirm password' %>
-  <%= f.input :admin, collection: [true, false], selected: false %>
-  <%= f.button :submit, label: 'Create User' %>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <%= f.input :name, label: 'Name' %>
+      <%= f.input :email, label: 'Email' %>
+      <%= f.input :phone, label: 'Phone' %>
+      <%= f.input :password, label: 'Password' %>
+      <%= f.input :password_confirmation, label: 'Confirm password' %>
+      <%= f.input :admin, collection: [true, false], selected: false %>
+    </li>
+  </ul>
+  
+  <div class = "buttonControl">
+    <%= f.button :submit, label: 'Create User' %>
+  </div>
+  
 <% end %>

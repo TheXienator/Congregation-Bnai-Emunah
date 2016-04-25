@@ -13,6 +13,10 @@ class CommentsController < ApplicationController
     # end
   end
   
+  def new
+    @comment = Comment.new
+  end
+  
   def index
     if !current_user.admin?
       @comments = Comment.where("confidential = ? OR user_id = ?", false, current_user.id).order(:created_at).reverse
