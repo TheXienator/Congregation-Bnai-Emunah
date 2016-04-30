@@ -23,9 +23,9 @@ Background: families in database
 
   Given the following comments exist:
   | family    | content                                         | user_id | confidential  |
-  | Johnson   | Walter is the only member of the Johnson family | 1       | false         |
+  | Johnson   | Walter is the only member of the Johnson family | 2       | false         |
   | Johnson   | Walter is terminally ill                        | 1       | true          |
-  | Hamilton  | Tim and Ben are identical twins                 | 1       | false         |
+  | Hamilton  | Tim and Ben are identical twins                 | 2       | false         |
   | Hamilton  | Tim and Ben are terminally ill                  | 1       | true          |
   
 Scenario: view comments
@@ -79,6 +79,12 @@ Scenario: most recent comments are displayed first
   Then I should see "Walter just had a child" before "Walter is the only member"
   
 Scenario: update comments
+  Given I follow "Sign Out"
+  Then I go to the sign in page
+  And I fill in "Email" with "chris@gmail.com"
+  And I fill in "Password" with "password"
+  And I press "Log in"
+  
   Given I am on the "Johnson" family page
   And I follow "Edit"
   And I fill in "Comment" with "Walter is the only living member"
@@ -88,6 +94,12 @@ Scenario: update comments
   Then I should not see "Walter is the only member"
   
 Scenario: delete comments
+  Given I follow "Sign Out"
+  Then I go to the sign in page
+  And I fill in "Email" with "chris@gmail.com"
+  And I fill in "Password" with "password"
+  And I press "Log in"
+  
   Given I am on the "Johnson" family page
   And I follow "Delete"
   Then I should be on the "Johnson" family page

@@ -8,10 +8,4 @@ class TaskMailer < ApplicationMailer
         mail(:to => @user.email, :subject => 'You have been assigned a new task' )
     end
     
-    def reset_password_instructions(user, token)
-        @resource = user
-        @token = token
-        mail(:to => user.email,
-        :subject => 'Password Reset Notification')
-    end
 end

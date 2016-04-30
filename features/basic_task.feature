@@ -32,7 +32,6 @@ Background: families in database
   | Talk to Johnson                   | Normal    | 2       | 1         | false     |
   | Convince Hamilton to come to mass | Urgent    | 3       | 1         | false     |
   
-  
 Scenario: view my tasks
   Given I follow "Sign Out"
   Then I go to the sign in page
@@ -75,4 +74,17 @@ Scenario: delete tasks as an administrator
   And I follow "Delete"
   Then I should be on the user page for "Chris"
   Then I should not see "Talk to Johnson"
+
+Scenario: complete my tasks
+  Given I follow "Sign Out"
+  Then I go to the sign in page
+  And I fill in "Email" with "chris@gmail.com"
+  And I fill in "Password" with "password"
+  And I press "Log in"
   
+  When I go to the profile page
+  Then I should see "Pending Tasks:" before "Talk to Johnson"
+  Then I should see "Talk to Johnson" before "Completed Tasks:"
+
+  When I press "Finish"
+  Then I should see "Completed Tasks:" before "Talk to Johnson"

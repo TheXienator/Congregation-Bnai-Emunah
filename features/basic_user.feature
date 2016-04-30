@@ -12,7 +12,7 @@ Background: users in database
   | Tim   | tim@gmail.com     | password  | false   |
   
   Given I am on the sign in page
-
+  
 Scenario: I can log in to an existing account
   Given I fill in "Email" with "jason@gmail.com"
   And I fill in "Password" with "password"
@@ -48,3 +48,28 @@ Scenario: administrators can update users
   Then I should be on the user page for "Terry"
   Then I should see "Terry"
   Then I should not see "Tim"
+  
+Scenario: administrators can create users
+  Given I fill in "Email" with "jason@gmail.com"
+  And I fill in "Password" with "password"
+  And I press "Log in"
+  When I go to the users page
+  And I follow "Add User"
+  And I fill in "Name" with "Tom"
+  And I fill in "Email" with "tom@gmail.com"
+  And I fill in "Password" with "password"
+  And I fill in "Confirm password" with "password"
+
+  And I press "Create User"
+  Then I should be on the users page
+  Then I should see "Tom"
+  
+Scenario: administrators can destroy users
+  Given I fill in "Email" with "jason@gmail.com"
+  And I fill in "Password" with "password"
+  And I press "Log in"
+  
+  When I go to the user page for "Tim"
+  And I press "Delete User"
+  Then I should be on the users page
+  Then I should not see "tim@gmail.com"
